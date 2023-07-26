@@ -1,0 +1,461 @@
+$fontFamily: Verdana, Geneva, Tahoma, sans-serif;
+$colorBtn: rgb(128, 128, 128);
+$colorBtnHover: rgb(181, 181, 181);
+$colorBtnResetHover: rgba(100, 56, 56, 0.4);
+$colorNone: rgba(0, 0, 0, 0);
+$colorFont: rgb(155, 154, 154);
+$colorBG: rgb(39, 39, 39);
+$colorComplete: rgb(56, 112, 39);
+$colorHint: rgb(123, 80, 44);
+$colorLevelItemHover: rgba(255, 255, 255, 0.05);
+$colorLevelItemActive: rgba(255, 255, 255, 0.1);
+$colorFontLevelItem: rgb(175, 175, 175);
+$fontSizePanelTitle: 1.8rem;
+$fontWeightPanelTitle: 500;
+$fontSizeBtnReset: 1.6rem;
+$fontSizeLevelsTitle: 2rem;
+$fontSizeLevelsItemName: 1.6rem;
+$progressBarColorBG: rgba(19, 19, 19, 0.5);
+$progressBarValueColorBG: rgb(74, 74, 74);
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  height: 100vh;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  box-sizing: border-box;
+
+  font-family: $fontFamily;
+  color: $colorFont;
+  background-color: $colorBG;
+  transition: all 0.3s;
+
+}
+
+.task__title {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.task__description {
+  font-size: 1.5rem;
+}
+
+.task__example-title {
+  font-size: 1.6rem;
+}
+
+.task__example {
+  font-size: 1.4rem;
+}
+
+.panel-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  min-width: 28rem;
+}
+
+.panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+
+  &__title {
+    font-size: $fontSizePanelTitle;
+    font-weight: $fontWeightPanelTitle;
+  }
+}
+
+.level-status {
+  width: 2rem;
+  height: 3rem;
+  position: relative;
+  transform: scale(0.6);
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    left: 20%;
+    bottom: 25%;
+    border-bottom: 0.5rem solid $colorBtn;
+    border-right: 0.5rem solid $colorBtn;
+    transform: rotate(45deg);
+  }
+
+  &--active {
+    &::before {
+      border-bottom: 0.5rem solid $colorComplete;
+      border-right: 0.5rem solid $colorComplete;
+    }
+  }
+}
+
+.hint-status {
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  transform: scale(0.7);
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 0.2rem solid $colorBtn;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 0.2rem;
+    top: 60%;
+    left: 50%;
+    background-color: $colorBtn;
+    transform: rotate(45deg);
+  }
+
+  &--active {
+    &::before {
+      border: 0.2rem solid $colorHint;
+    }
+
+    &::after {
+      background-color: $colorHint;
+    }
+  }
+}
+
+.control {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  &__btn-prev,
+  &__btn-next {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0.5rem;
+      left: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-left: 0.2rem solid $colorBtn;
+      border-top: 0.2rem solid $colorBtn;
+      transform: rotate(-45deg);
+    }
+
+    &:hover::before {
+      border-left: 0.2rem solid $colorBtnHover;
+      border-top: 0.2rem solid $colorBtnHover;
+    }
+
+    &:active::before {
+      animation: scalePrev 0.07s linear;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+    }
+  }
+
+  &__btn-next::before {
+    left: 0;
+    transform: rotate(135deg);
+  }
+
+  &__btn-next:active::before {
+    animation: scaleNext 0.05s linear;
+  }
+
+  &__btn-menu {
+    width: 100%;
+    height: 0.2rem;
+    position: relative;
+
+    background-color: $colorBtn;
+    transition: all 0.05s;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0.2rem;
+      background-color: $colorBtn;
+      transform-origin: left;
+      transition: transform 0.05s;
+    }
+
+    &::before {
+      top: -0.9rem;
+    }
+
+    &::after {
+      top: 0.9rem;
+    }
+  }
+}
+
+.btn-open {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: fixed;
+  top: 2rem;
+  right: -5rem;
+  cursor: pointer;
+  animation: run 2s linear infinite;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0.8rem;
+    left: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-left: 0.2rem solid $colorBtn;
+    border-top: 0.2rem solid $colorBtn;
+    transform: rotate(-45deg);
+  }
+
+  &:hover::before {
+    border-left: 0.2rem solid $colorBtnHover;
+    border-top: 0.2rem solid $colorBtnHover;
+  }
+
+  &--active {
+    transition: all 0.2s;
+
+    &::before {
+      transform: rotate(135deg);
+    }
+  }
+
+}
+
+.btn-reset {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  padding: 1rem;
+  justify-content: center;
+  align-self: center;
+
+
+  font-size: $fontSizeBtnReset;
+  font-family: $fontFamily;
+
+  border-radius: 0.5rem;
+  border: 0.2rem solid $colorBtn;
+  cursor: pointer;
+
+  &:hover {
+    background: $colorBtnResetHover;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.btn-wrapper {
+  display: flex;
+  align-items: center;
+  width: 2.6rem;
+  height: 2.5rem;
+  opacity: 0.5;
+  z-index: 3;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &--active {
+    .control__btn-menu {
+      background-color: $colorNone;
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  height: 0.2rem;
+  border: none;
+  --webkit-appearance: none;
+}
+
+.progress-bar::-webkit-progress-bar {
+  background-color: $progressBarColorBG;
+}
+
+.progress-bar::-webkit-progress-value {
+  background-color: $progressBarValueColorBG;
+}
+
+.levels {
+  position: absolute;
+  min-width: 100%;
+  top: 0;
+  right: -100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+  opacity: 0.5;
+  box-sizing: border-box;
+  background-color: $colorBG;
+  transition: right 0.15s, opacity 0.1s;
+
+  width: 20rem;
+  height: 100vh;
+  font-family: $fontFamily;
+
+  &__title {
+    padding: 2.5rem;
+    font-size: $fontSizeLevelsTitle;
+  }
+
+  &__list {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style-type: none;
+    counter-reset: my-counter;
+  }
+
+  &__item {
+    display: flex;
+    padding-left: 2rem;
+    align-items: center;
+    width: 100%;
+    gap: 0.8rem;
+    cursor: pointer;
+
+    &-name {
+      color: $colorBtn;
+      font-size: $fontSizeLevelsItemName;
+      counter-increment: my-counter;
+
+      &::before {
+        content: counter(my-counter);
+        margin-right: 1.2rem;
+        font-size: $fontSizeLevelsItemName;
+      }
+    }
+
+    &:hover {
+      background-color: $colorLevelItemHover;
+    }
+
+    &--selected {
+      background-color: $colorLevelItemActive;
+
+      .levels__item-name {
+        color: $colorFontLevelItem;
+      }
+    }
+  }
+
+  &--open {
+    right: 0%;
+    opacity: 1;
+  }
+}
+
+@keyframes run {
+  0% {
+    transform: translateX(0%);
+  }
+
+  75% {
+    transform: translateX(-20%)
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scalePrev {
+  0% {
+    transform: rotate(-45deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(-45deg) scale(0.8);
+  }
+
+  80% {
+    transform: rotate(-45deg) scale(1.05);
+  }
+
+  100% {
+    transform: rotate(-45deg) scale(1);
+  }
+}
+
+@keyframes scaleNext {
+  0% {
+    transform: rotate(135deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(135deg) scale(0.8);
+  }
+
+  80% {
+    transform: rotate(135deg) scale(1.05);
+  }
+
+  100% {
+    transform: rotate(135deg) scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+
+    &--open {
+      right: 0;
+    }
+  }
+
+  .btn-open {
+    right: 2rem;
+    transition: all 0.2s;
+
+    &--active {
+      right: 34rem;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+$borderLogo: 0.6rem solid rgb(27, 26, 26);
+$borderLogoColorBG: rgb(217, 169, 86);
+$borderLogoBeforeColorBG: rgb(0, 0, 0);
+$fontFamily: Verdana, Geneva, Tahoma, sans-serif;
+$fontSizeHeaderTitle: 1.4rem;
+$fontColorHeaderTitle: rgba(255, 255, 255, 0.4);
+
+.header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 95%;
+  padding: 1.5rem;
+
+
+  &__logo {
+    position: relative;
+    box-sizing: border-box;
+    margin-right: 0.6rem;
+    width: 2.8rem;
+    height: 2.8rem;
+
+    border-radius: 50%;
+    border: $borderLogo;
+    background-color: $borderLogoColorBG;
+
+    cursor: default;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 30%;
+      left: 40%;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 50%;
+      background-color: $borderLogoBeforeColorBG;
+    }
+
+
+    &:hover {
+      animation: rotate 1.5s infinite linear;
+    }
+
+  }
+
+  &__title {
+    font-size: $fontSizeHeaderTitle;
+    font-family: $fontFamily;
+    color: $fontColorHeaderTitle;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

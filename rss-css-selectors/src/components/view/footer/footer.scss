@@ -1,0 +1,62 @@
+$fontFamily: Verdana, Geneva, Tahoma, sans-serif;
+$fontColor: rgba(255, 255, 255, 0.45);
+$fontSize: 1.5rem;
+$borderIconRss: 0.1rem solid rgb(67, 67, 67);
+$colorBgIconHover: rgba(114, 114, 114, 0.7);
+$colorBgIconActive: rgba(125, 125, 125, 0.8);
+
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  padding: 1rem;
+  margin-top: auto;
+  color: $fontColor;
+}
+
+.icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &--rss {
+    width: 7rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border: $borderIconRss;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 0.2rem;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: $colorBgIconHover;
+  }
+
+  &:active {
+    background-color: $colorBgIconActive;
+  }
+}
+
+.date {
+  margin: 0;
+  font-family: $fontFamily;
+  font-size: $fontSize;
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding-top: 3rem;
+    width: 70%;
+  }
+}

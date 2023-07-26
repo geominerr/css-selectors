@@ -1,0 +1,53 @@
+$colorBG: rgb(76, 76, 76);
+
+html {
+  font-size: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: $colorBG;
+}
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 31rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  transition: all 0.3s;
+}
+
+@media (max-width: 900px) {
+
+  .wrapper {
+    right: 0;
+  }
+
+}
+
+@media (max-width: 499px) {
+
+  .wrapper {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+}

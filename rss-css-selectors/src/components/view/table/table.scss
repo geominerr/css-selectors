@@ -1,0 +1,407 @@
+$fontFamily: Verdana, Geneva, Tahoma, sans-serif;
+$colorFontTitle: rgba(255, 255, 255, 0.45);
+$fontSizeTile: 3.5rem;
+$fontWeightTitle: 500;
+$colorBGTable: rgb(60, 60, 60);
+$boxShadowTable: 0 1rem 1.5rem rgba(0, 0, 0, 0.5);
+$itemBorder: 1.5rem solid rgb(27, 26, 26);
+$itemBG: rgb(195, 201, 201);
+$itemBoxShadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.5);
+$colorFontItem: rgb(190, 190, 190);
+$fontSizeItem: 1.8rem;
+$fontSizeAfterItem: 1.4rem;
+$itemBeforeBG: radial-gradient(ellipse at center,
+    rgba(171, 171, 171, 0.6) 0%,
+    rgba(160, 160, 160, 0) 80%);
+$edgeBoxShadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.5);
+$edgeBG: rgb(48, 48, 48);
+$fontSizeItemTitle: 1.4rem;
+$fontColorItemTitle: rgb(235, 240, 245);
+$acidItemBG: rgba(53, 143, 50, 0.4);
+$popItemBG: rgba(153, 37, 153, 0.4);
+$idmItemBG: rgba(48, 33, 146, 0.4);
+$technoItemBG: rgba(20, 67, 117, 0.6);
+$jazzItemBG: rgba(255, 145, 0, 0.4);
+$houseItemBG: rgba(40, 122, 128, 0.4);
+$synthItemBG: rgba(36, 97, 101, 0.7);
+$itemTargetBoxShadow: 0 0.1rem 1.5rem rgba(0, 0, 0, 0.5);
+$itemFocusOutline: 0.4rem solid rgba(185, 185, 185, 0.3);
+$popupBG: rgb(247, 247, 247);
+$fontColotPopup: rgb(110, 110, 110);
+$fontSizePopup: 1.6rem;
+$fontWeightPopup: 400;
+$fontSizeTitleSmall: 2.5rem;
+$borderItemSmall: 1.1rem solid rgb(27, 26, 26);
+$fontSizeItemTitleSmall: 1.2rem;
+$fontSizeAfterItemSmall: 1.1rem; 
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  font-family: $fontFamily;
+}
+
+.title {
+  margin-bottom: 3rem;
+  font-size: $fontSizeTile;
+  text-align: center;
+  font-family: $fontFamily;
+  font-weight: $fontWeightTitle;
+  color: $colorFontTitle;
+}
+
+.table-wrapper {
+  perspective: 80rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1.5rem;
+  padding: 3rem 1rem;
+  transform-style: preserve-3d;
+  transform: rotateX(40deg);
+  background-color: $colorBGTable;
+  box-shadow: $boxShadowTable;
+
+  &__item {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    border: $itemBorder;
+    background-color: $itemBG;
+    box-shadow: $itemBoxShadow;
+    color: $colorFontItem;
+    font-size: $fontSizeItem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      width: 10%;
+      height: 50%;
+      background: $itemBeforeBG;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 40%;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      color: $colorFontItem;
+      font-size: $fontSizeAfterItem;
+      font-family: $fontFamily;
+    }
+  }
+
+  &__edge {
+    position: relative;
+    top: -1.7rem;
+    width: 105%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    transform-style: preserve-3d;
+    transform: rotateX(-40deg);
+    background-color: $edgeBG;
+    box-shadow: $edgeBoxShadow;
+  }
+
+  &__title {
+    font-family: $fontFamily;
+    font-size: $fontSizeItemTitle;
+    color: $fontColorItemTitle;
+  }
+
+  &__item--acid {
+    &::after {
+      content: 'acid';
+      top: 22%;
+      left: 15%;
+      width: 0;
+    }
+
+    background-color: $acidItemBG;
+  }
+
+  &__item--pop {
+    &::after {
+      content: 'pop';
+      top: 22%;
+      left: 18%;
+      width: 0;
+    }
+
+    background-color: $popItemBG;
+  }
+
+  &__item--idm {
+    &::after {
+      content: 'idm';
+      top: 20%;
+      left: 10%;
+      width: 0;
+    }
+
+    background-color: $idmItemBG;
+  }
+
+  &__item--techno {
+    &::after {
+      content: 'tech';
+      top: 22%;
+      left: 12%;
+      width: 0;
+    }
+
+    background-color: $technoItemBG;
+  }
+
+  &__item--jazz {
+    &::after {
+      content: 'jazz';
+      top: 22%;
+      left: 16%;
+      width: 0;
+    }
+
+    background-color: $jazzItemBG;
+  }
+
+  &__item--house {
+    &::after {
+      content: 'house';
+      top: 22%;
+      left: 0%;
+      width: 0;
+    }
+
+    background-color: $houseItemBG;
+  }
+
+  &__item--synth {
+    &::after {
+      content: 'synth';
+      top: 20%;
+      left: 0%;
+      width: 0;
+    }
+
+    background-color: $synthItemBG;
+  }
+
+  &__item--tech {
+    &::after {
+      content: 'tech';
+      top: 20%;
+      left: 0%;
+      width: 0;
+    }
+
+    background-color: $technoItemBG
+  }
+
+  &__item--target {
+    box-shadow: $itemTargetBoxShadow;
+    animation: rotate 2s infinite linear;
+  }
+
+  &__item--target-child {
+    z-index: 3;
+    box-shadow: $itemTargetBoxShadow;
+    animation: rotateHalf 2s infinite linear;
+  }
+
+  &__item--focus {
+    outline: $itemFocusOutline;
+  }
+
+  &__item--out {
+    animation: out 1s linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+  }
+
+  &--out {
+    .table__item--target {
+      animation: out 1s linear;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+    }
+
+    .table__item--target-child {
+      animation: out 1s linear;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+    }
+  }
+}
+
+.item-container {
+  position: relative;
+}
+
+.popup {
+  opacity: 0;
+  padding: 1rem;
+  white-space: nowrap;
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  background-color: $popupBG;
+  border-radius: 0.4rem;
+  color: $fontColotPopup;
+  font-size: $fontSizePopup;
+  font-weight: $fontWeightPopup;
+
+  &--active {
+    opacity: 1;
+    transition: all 0.1s;
+  }
+}
+
+@media (max-width: 520px) {
+  .title {
+    font-size: $fontSizeTitleSmall;
+  }
+
+  .table {
+    padding: 2rem 1rem;
+
+    &__item {
+      width: 5rem;
+      height: 5rem;
+      border: $borderItemSmall;
+
+      &::after {
+        font-size: $fontSizeAfterItemSmall;
+      }
+    }
+
+    &__edge {
+      top: -1.7rem;
+      width: 104%;
+      padding: 0.3rem 1rem;
+    }
+
+    &__title {
+      font-size: $fontSizeItemTitleSmall;
+    }
+
+    &__item--acid::after {
+      content: 'acid';
+      top: 20%;
+      left: 10%;
+      width: 0;
+    }
+
+    &__item--pop::after {
+      content: 'pop';
+      top: 20%;
+      left: 15%;
+      width: 0;
+    }
+
+    &__item--techno::after {
+      content: 'tech';
+      top: 22%;
+      left: 12%;
+      width: 0;
+    }
+
+    &__item--jazz::after {
+      content: 'jazz';
+      top: 22%;
+      left: 16%;
+      width: 0;
+    }
+
+    &__item--house::after {
+      content: 'house';
+      top: 20%;
+      left: -8%;
+      width: 0;
+    }
+
+    &__item--synth::after {
+      content: 'synth';
+      top: 20%;
+      left: -3%;
+      width: 0;
+    }
+
+    &__item--tech ::after {
+      content: 'tech';
+      top: 20%;
+      left: 0%;
+      width: 0;
+    }
+  }
+}
+
+@keyframes rotateHalf {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  17% {
+    transform: rotate(45deg);
+  }
+
+  34% {
+    transform: rotate(0deg);
+  }
+
+  51% {
+    transform: rotate(-45deg);
+  }
+
+  68% {
+    transform: rotate(0deg);
+  }
+
+  85% {
+    transform: rotate(45deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-1000%);
+  }
+}
