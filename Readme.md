@@ -1,19 +1,6 @@
 <h1 align="center"> CSS SELECTORS</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/github/directory-file-count/geominerr/css-selectors/rss-css-selectors">
-  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/geominerr/css-selectors">
-  <img alt="GitHub followers" src="https://img.shields.io/github/followers/geominerr">
-  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/geominerr/css-selectors">
-  <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/geominerr/css-selectors">
-  <img alt="GitHub commit activity (branch)" src="https://img.shields.io/github/commit-activity/t/geominerr/css-selectors">
-</p>
-<p align="center">
-  <img src="https://img.shields.io/badge/made_by-geominerr-orange?style=plastic&link=https%3A%2F%2Fgithub.com%2Fgeominerr%2F" height='20px'>
-  <img src="https://img.shields.io/badge/deploy-gh_pages-green?style=plastic&link=https%3A%2F%2Frolling-scopes-school.github.io%2Fgeominerr-JSFE2023Q1%2Frss-css-selectors%2F" height='20px'>
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white">
