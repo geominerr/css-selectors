@@ -43,7 +43,7 @@
 
 3. #### Navigate to Project Directory:
 
-   - Change your working directory to the downloaded project folder: `$ cd css-selectors`
+   - Change your working directory to the downloaded project folder: `$ cd rss-css-selectors`
 
 4. #### Install Dependencies:
 
