@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  ![Example](./docs/media/example.gif)
+  ![Example](docs/media/example.gif)
 </p>
 
 <p align="center">
